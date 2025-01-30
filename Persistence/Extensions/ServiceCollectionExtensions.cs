@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
     {
         services
             .AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>()
-            .AddScoped(typeof(IRepository<>), typeof(BaseRepository<>))
+            //.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>))
             .AddScoped(typeof(IProjectRepository), typeof(ProjectRepository))
             .AddScoped(typeof(ITaskRepository), typeof(TaskRepository))
             .AddScoped(typeof(IUserRepository), typeof(UserRepository))

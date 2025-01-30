@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Task = Domain.Entities.Task;
 
 namespace Application.Abstraction.IRepositories;
 public interface ITaskRepository : IRepository<Task>

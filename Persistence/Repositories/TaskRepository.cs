@@ -1,11 +1,16 @@
-﻿using Application.Abstraction.IRepositories;
+﻿using Application.Abstraction;
+using Application.Abstraction.IRepositories;
 using Dapper;
 using System.Data;
+using Task = Domain.Entities.Task;
 
 namespace Persistence.Repositories;
 
 public class TaskRepository : BaseRepository<Task>, ITaskRepository
 {
+    public TaskRepository(ISqlConnectionFactory connectionFactory)
+        : base(connectionFactory)
+    { }
     public async Task<IEnumerable<Task>> GetTasksByProjectAsync(IDbConnection connection, Guid projectId)
     {
         var sql = "SELECT * FROM Tasks WHERE ProjectId = @ProjectId";
