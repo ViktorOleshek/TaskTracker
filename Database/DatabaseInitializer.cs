@@ -1,48 +1,47 @@
 ﻿using DbUp;
 using Microsoft.Extensions.Logging;
 
-namespace Database
+namespace Database;
+
+public class DatabaseInitializer
 {
-    public class DatabaseInitializer
+    private readonly string _connectionString;
+    private readonly ILogger<DatabaseInitializer> _logger;
+
+    public DatabaseInitializer(
+        string connectionString,
+        ILogger<DatabaseInitializer> logger)
     {
-        private readonly string _connectionString;
-        private readonly ILogger<DatabaseInitializer> _logger;
+        _connectionString = connectionString;
+        _logger = logger;
+    }
 
-        public DatabaseInitializer(
-            string connectionString,
-            ILogger<DatabaseInitializer> logger)
+    public void Initialize()
+    {
+        EnsureDatabase.For.SqlDatabase(_connectionString);
+
+        var upgrader = DeployChanges.To
+            .SqlDatabase(_connectionString)
+            .WithTransaction()
+            .WithScriptsEmbeddedInAssembly(typeof(DatabaseInitializer).Assembly)
+            .LogTo(_logger)
+            .Build();
+
+        if (!upgrader.IsUpgradeRequired())
         {
-            _connectionString = connectionString;
-            _logger = logger;
+            _logger.LogInformation("Database is already updated");
+            return;
         }
 
-        public void Initialize()
+        var result = upgrader.PerformUpgrade();
+
+        if (!result.Successful)
         {
-            EnsureDatabase.For.SqlDatabase(_connectionString);
-
-            var upgrader = DeployChanges.To
-                .SqlDatabase(_connectionString)
-                .WithTransaction()
-                .WithScriptsEmbeddedInAssembly(typeof(DatabaseInitializer).Assembly)
-                .LogTo(_logger)
-                .Build();
-
-            if (!upgrader.IsUpgradeRequired())
-            {
-                _logger.LogInformation("Database is already updated");
-                return;
-            }
-
-            var result = upgrader.PerformUpgrade();
-
-            if (!result.Successful)
-            {
-                _logger.LogError($"A script error occurred at {result.ErrorScript.Name}");
-                _logger.LogError($"Error script: {result.ErrorScript.Contents}");
-                return;
-            }
-
-            _logger.LogInformation("Database successfully migrated");
+            _logger.LogError($"A script error occurred at {result.ErrorScript.Name}");
+            _logger.LogError($"Error script: {result.ErrorScript.Contents}");
+            return;
         }
+
+        _logger.LogInformation("Database successfully migrated");
     }
 }
