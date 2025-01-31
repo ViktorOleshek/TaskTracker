@@ -29,7 +29,9 @@ public class Startup
             .AddApplication()
             .AddInfrastructure()
             .AddPersistence(Configuration)
-            .AddApi();
+            .AddApi()
+            .AddCorsPolicy()
+            .ConfigureAuthentication(Configuration);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,6 +45,8 @@ public class Startup
 
         app.UseHttpsRedirection();
         app.UseRouting();
+
+        app.UseCors("AllowAllOrigins");
 
         app.UseAuthentication();
         app.UseAuthorization();
