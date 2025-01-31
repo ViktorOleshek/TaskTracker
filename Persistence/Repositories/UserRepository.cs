@@ -6,7 +6,7 @@ using System.Data;
 
 namespace Persistence.Repositories;
 
-public class UserRepository : BaseRepository<User>, IUserRepository
+internal class UserRepository : BaseRepository<User>, IUserRepository
 {
     public UserRepository(ISqlConnectionFactory connectionFactory)
         : base(connectionFactory)

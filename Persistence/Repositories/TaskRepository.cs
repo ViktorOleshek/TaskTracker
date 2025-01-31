@@ -5,7 +5,7 @@ using Task = Domain.Entities.Task;
 
 namespace Persistence.Repositories;
 
-public class TaskRepository : BaseRepository<Task>, ITaskRepository
+internal class TaskRepository : BaseRepository<Task>, ITaskRepository
 {
     public TaskRepository(ISqlConnectionFactory connectionFactory)
         : base(connectionFactory)

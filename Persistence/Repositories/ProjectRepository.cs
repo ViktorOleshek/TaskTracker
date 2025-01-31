@@ -5,7 +5,7 @@ using Domain.Entities;
 
 namespace Persistence.Repositories;
 
-public class ProjectRepository : BaseRepository<Project>, IProjectRepository
+internal class ProjectRepository : BaseRepository<Project>, IProjectRepository
 {
     public ProjectRepository(ISqlConnectionFactory connectionFactory)
         : base(connectionFactory)
