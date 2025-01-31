@@ -9,7 +9,7 @@ public class SqlConnectionFactory : ISqlConnectionFactory
 
     public SqlConnectionFactory(IConfiguration configuration)
     {
-        _connectionString = configuration.GetConnectionString("localdb")
+        _connectionString = configuration.GetConnectionString("SqlConnectionString")
             ?? throw new ApplicationException("Connection string is missing");
     }
 
