@@ -1,4 +1,4 @@
-﻿using Application.Services.Authentication;
+﻿using Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;

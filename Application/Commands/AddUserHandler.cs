@@ -1,9 +1,8 @@
-﻿using Application.Abstraction.IRepositories;
-using Application.Commands;
+﻿using Domain.Abstraction.Repositories;
 using Domain.Entities;
 using MediatR;
 
-namespace Infrastructure.CommandsHandler;
+namespace Application.Commands;
 public class AddUserHandler : IRequestHandler<AddUserCommand, Guid>
 {
     private readonly IUserRepository _userRepository;

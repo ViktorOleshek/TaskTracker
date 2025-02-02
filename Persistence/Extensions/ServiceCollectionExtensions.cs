@@ -1,5 +1,5 @@
-﻿using Application.Abstraction;
-using Application.Abstraction.IRepositories;
+﻿using Domain.Abstraction;
+using Domain.Abstraction.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Repositories;

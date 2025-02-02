@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
-using System.Data;
 
-namespace Application.Abstraction.IRepositories;
+namespace Domain.Abstraction.Repositories;
 public interface IRepository<TEntity>
     where TEntity : BaseEntity
 {

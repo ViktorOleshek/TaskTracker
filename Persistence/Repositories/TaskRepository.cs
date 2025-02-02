@@ -1,11 +1,11 @@
-﻿using Application.Abstraction;
-using Application.Abstraction.IRepositories;
+﻿using Domain.Abstraction;
+using Domain.Abstraction.Repositories;
 using Dapper;
 using Task = Domain.Entities.Task;
 
 namespace Persistence.Repositories;
 
-public class TaskRepository : BaseRepository<Task>, ITaskRepository
+internal class TaskRepository : BaseRepository<Task>, ITaskRepository
 {
     public TaskRepository(ISqlConnectionFactory connectionFactory)
         : base(connectionFactory)

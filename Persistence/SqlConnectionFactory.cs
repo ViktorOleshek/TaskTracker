@@ -1,9 +1,9 @@
-﻿using Application.Abstraction;
+﻿using Domain.Abstraction;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
 namespace Persistence;
-public class SqlConnectionFactory : ISqlConnectionFactory
+internal class SqlConnectionFactory : ISqlConnectionFactory
 {
     private readonly string _connectionString;
 

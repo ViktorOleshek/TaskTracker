@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 
-namespace Application.Abstraction.IRepositories;
+namespace Domain.Abstraction.Repositories;
 public interface IUserRepository : IRepository<User>
 {
     Task<User?> GetByLoginAsync(string login);

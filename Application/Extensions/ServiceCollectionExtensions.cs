@@ -1,6 +1,5 @@
-﻿using Application.Abstraction.IServices;
-using Application.Services.Authentication;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Application.Extensions;
 
@@ -8,7 +7,9 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        return services
-            .AddScoped<IJwtProvider, JwtProvider>();
+        return services.AddMediatR(cfg =>
+                   cfg.RegisterServicesFromAssemblies(
+                       Assembly.GetExecutingAssembly()
+                   ));
     }
 }

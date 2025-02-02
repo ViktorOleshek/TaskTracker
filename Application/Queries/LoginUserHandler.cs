@@ -1,9 +1,8 @@
-﻿using Application.Abstraction.IRepositories;
-using Application.Abstraction.IServices;
-using Application.Queries;
+﻿using Domain.Abstraction.Repositories;
+using Domain.Abstraction.Services;
 using MediatR;
 
-namespace Infrastructure.QueriesHandler;
+namespace Application.Queries;
 public class LoginUserHandler : IRequestHandler<LoginUserQuery, LoginUserResult>
 {
     private readonly IUserRepository _userRepository;

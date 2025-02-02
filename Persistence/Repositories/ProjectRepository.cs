@@ -1,11 +1,11 @@
-﻿using Application.Abstraction;
-using Application.Abstraction.IRepositories;
+﻿using Domain.Abstraction;
+using Domain.Abstraction.Repositories;
 using Dapper;
 using Domain.Entities;
 
 namespace Persistence.Repositories;
 
-public class ProjectRepository : BaseRepository<Project>, IProjectRepository
+internal class ProjectRepository : BaseRepository<Project>, IProjectRepository
 {
     public ProjectRepository(ISqlConnectionFactory connectionFactory)
         : base(connectionFactory)
