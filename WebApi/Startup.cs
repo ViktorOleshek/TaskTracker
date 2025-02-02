@@ -1,18 +1,15 @@
 ﻿namespace WebApi;
 
-using WebApi.Extensions;
 using Application.Extensions;
+using Database;
 using Infrastructure.Extensions;
-using Persistence.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Database;
+using Persistence.Extensions;
+using WebApi.Extensions;
 
 public class Startup
 {
