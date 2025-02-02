@@ -1,4 +1,4 @@
-﻿using Application.Abstraction.IServices;
+﻿using Domain.Abstraction.Services;
 using Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Application.Services.Authentication;
+namespace Infrastructure.Extensions;
 
 public class JwtProvider : IJwtProvider
 {

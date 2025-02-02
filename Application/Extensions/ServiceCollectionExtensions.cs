@@ -1,4 +1,4 @@
-﻿using Application.Abstraction.IServices;
+﻿using Domain.Abstraction.Services;
 using Application.Services.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 

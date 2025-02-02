@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 
-namespace Application.Abstraction.IRepositories;
+namespace Domain.Abstraction.Repositories;
 public interface IProjectRepository : IRepository<Project>
 {
     Task<IEnumerable<Project>> GetProjectsByUserAsync(Guid userId);

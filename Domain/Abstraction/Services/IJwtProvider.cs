@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 
-namespace Application.Abstraction.IServices;
+namespace Domain.Abstraction.Services;
 public interface IJwtProvider
 {
     string Generate(User user);

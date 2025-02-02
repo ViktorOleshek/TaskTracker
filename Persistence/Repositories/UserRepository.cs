@@ -1,8 +1,7 @@
-﻿using Application.Abstraction;
-using Application.Abstraction.IRepositories;
-using Dapper;
+﻿using Dapper;
+using Domain.Abstraction;
+using Domain.Abstraction.Repositories;
 using Domain.Entities;
-using System.Data;
 
 namespace Persistence.Repositories;
 
