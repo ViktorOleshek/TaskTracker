@@ -1,4 +1,7 @@
-﻿namespace Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities;
+[Table("Users")]
 public class User : BaseEntity
 {
     public string Login { get; set; } = string.Empty;

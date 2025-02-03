@@ -1,4 +1,8 @@
-﻿namespace Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities;
+
+[Table("Projects")]
 public class Project : BaseEntity
 {
     public string Name { get; set; } = string.Empty;

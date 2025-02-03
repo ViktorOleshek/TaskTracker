@@ -1,4 +1,8 @@
-﻿namespace Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities;
+
+[Table("Tasks")]
 public class Task : BaseEntity
 {
     public string Name { get; set; } = string.Empty;

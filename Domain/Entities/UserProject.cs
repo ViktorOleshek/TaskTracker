@@ -1,4 +1,8 @@
-﻿namespace Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities;
+
+[Table("UserProjects")]
 public class UserProject
 {
     public Guid UserId { get; set; }
