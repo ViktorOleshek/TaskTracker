@@ -10,15 +10,13 @@
   <ItemGroup>
     <None Remove="Scripts\Script-0001.CreateTableRoles.sql" />
     <None Remove="Scripts\Script-0002.CreateTables.sql" />
-    <None Remove="Scripts\Script-0003.ChangeUsersProperty.sql" />
-    <None Remove="Scripts\Script-0004.InsertDataInTables.sql" />
+    <None Remove="Scripts\Script-0003.InsertDataInTables.sql" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Scripts\Script-0001.CreateTableRoles.sql" />
     <EmbeddedResource Include="Scripts\Script-0002.CreateTables.sql" />
-    <EmbeddedResource Include="Scripts\Script-0003.ChangeUsersProperty.sql" />
-    <EmbeddedResource Include="Scripts\Script-0004.InsertDataInTables.sql" />
+    <EmbeddedResource Include="Scripts\Script-0003.InsertDataInTables.sql" />
   </ItemGroup>
 
   <ItemGroup>
