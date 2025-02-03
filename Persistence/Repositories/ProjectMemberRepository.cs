@@ -17,4 +17,10 @@ internal class ProjectMemberRepository : BaseRepository<ProjectMember>, IProject
             "SELECT * FROM UserProjects WHERE UserId = @UserId AND ProjectId = @ProjectId",
             new { UserId = userId, ProjectId = projectId });
     }
+
+    public async Task<int> DeleteAsync(ProjectMember entity)
+    {
+        using var connection = _connectionFactory.CreateConnection();
+        return await connection.DeleteAsync(entity);
+    }
 }
