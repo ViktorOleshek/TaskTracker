@@ -30,14 +30,8 @@ internal abstract class BaseRepository<TEntity> : IRepository<TEntity>
     public virtual async Task<Guid> CreateAsync(TEntity entity)
     {
         using var connection = _connectionFactory.CreateConnection();
-
-        var sql = @"
-        INSERT INTO Users (Login, Password, Email) 
-        OUTPUT INSERTED.Id 
-        VALUES (@Login, @Password, @Email)";
-
-        var id = await connection.ExecuteScalarAsync<Guid>(sql, entity);
-        return id;
+        await connection.InsertAsync<Guid, TEntity>(entity);
+        return entity.Id;
     }
 
     public virtual async Task<int> UpdateAsync(TEntity entity)
