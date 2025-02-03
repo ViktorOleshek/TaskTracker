@@ -40,7 +40,7 @@ internal abstract class BaseRepository<TEntity> : IRepository<TEntity>
         return await connection.UpdateAsync(entity);
     }
 
-    public virtual async Task<int> DeleteAsync(Guid id)
+    public virtual async Task<int> DeleteByIdAsync(Guid id)
     {
         using var connection = _connectionFactory.CreateConnection();
         return await connection.DeleteAsync<TEntity>(id);
