@@ -1,5 +1,8 @@
-﻿namespace Domain.Entities;
-public class User : BaseEntity
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Domain.Entities;
+[Table("Users")]
+public class User : TrackableEntity
 {
     public string Login { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;

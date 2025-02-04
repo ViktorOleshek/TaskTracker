@@ -15,6 +15,8 @@ public static class ServiceCollectionExtensions
             .AddScoped(typeof(IProjectRepository), typeof(ProjectRepository))
             .AddScoped(typeof(ITaskRepository), typeof(TaskRepository))
             .AddScoped(typeof(IUserRepository), typeof(UserRepository))
+            .AddScoped(typeof(IProjectMemberRepository), typeof(ProjectMemberRepository))
+            .AddScoped(typeof(IRoleRepository), typeof(RoleRepository))
             ;
 
         return services;

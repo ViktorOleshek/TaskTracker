@@ -1,4 +1,5 @@
-﻿using Infrastructure.Extensions;
+﻿using Domain.Constants;
+using Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -58,7 +59,8 @@ public static class ServiceCollectionExtensions
         var jwtOptions = configuration.GetSection("JwtOptions").Get<JwtOptions>()!;
         services.Configure<JwtOptions>(configuration.GetSection("JwtOptions"));
 
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        services
+            .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
@@ -71,9 +73,16 @@ public static class ServiceCollectionExtensions
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = jwtOptions.Issuer,
                     ValidAudience = jwtOptions.Audience,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey
+                    ?? throw new InvalidOperationException()))
                 };
             });
+
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy(Roles.Admin, policy => policy.RequireRole(Roles.Admin));
+            options.AddPolicy(Roles.User, policy => policy.RequireRole(Roles.User));
+        });
 
         return services;
     }
