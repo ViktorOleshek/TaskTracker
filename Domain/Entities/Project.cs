@@ -3,7 +3,7 @@
 namespace Domain.Entities;
 
 [Table("Projects")]
-public class Project : BaseEntity
+public class Project : TrackableEntity
 {
     public string Name { get; set; } = string.Empty;
     public string? Description { get; set; }

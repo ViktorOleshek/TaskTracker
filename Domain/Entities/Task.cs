@@ -3,7 +3,7 @@
 namespace Domain.Entities;
 
 [Table("Tasks")]
-public class Task : BaseEntity
+public class Task : TrackableEntity
 {
     public string Name { get; set; } = string.Empty;
     public DateTime StartDate { get; set; }

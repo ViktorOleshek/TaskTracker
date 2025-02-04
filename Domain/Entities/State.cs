@@ -2,7 +2,7 @@
 
 namespace Domain.Entities;
 [Table("States")]
-public class State : BaseEntity
+public class State : TrackableEntity
 {
     public Guid ProjectId { get; set; }
     public int Number { get; set; }

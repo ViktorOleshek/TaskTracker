@@ -3,7 +3,7 @@
 namespace Domain.Entities;
 
 [Table("Comments")]
-public class Comment : BaseEntity
+public class Comment : TrackableEntity
 {
     public string Data { get; set; } = string.Empty;
     public Guid TaskId { get; set; }

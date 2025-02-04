@@ -2,7 +2,7 @@
 
 namespace Domain.Entities;
 [Table("Users")]
-public class User : BaseEntity
+public class User : TrackableEntity
 {
     public string Login { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
